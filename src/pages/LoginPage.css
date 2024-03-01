@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1{
+}
+
+.wrap {
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container{
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border:  2px solid rgba(255, 255, 255, 0);
+    padding: 40px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+
+
+
+
+}
+.input-box {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+
+}
+
+
+
+
+.SignUp-btn{
+    background: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    border: #FFC75F 2px solid;
+    color: #FFC75F;
+
+    
+
+    
+}
+.login-btn{
+    display: flex;
+    gap: 10px;
+}
+

@@ -1,0 +1,171 @@
+.course-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+.Headercourse{
+    display: flex;
+    
+    flex-direction: column;
+    width: 100%;
+}
+
+.course-description{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.lesson{
+    width: auto;
+}
+
+.Enroll-btn{
+    border: none;
+    padding: 10px 0px;
+    color: white;
+    font-size: 20px;
+    background-color: #FFC75F;
+    border-radius: 10px;
+    
+}
+
+.course-description img{
+    width: 40px;
+}
+
+.software-container{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 200px;
+    padding: 5px;
+    justify-content: center;
+}
+
+.lesson-video{
+    padding: 30px 0px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+    gap: 30px;
+
+}
+
+.CompleteLesson-btn{
+    border: none;
+    font-size: 18px;
+    padding: 10px 40px;
+    border-radius: 5px;
+    background-color: #01cc65;
+    color: white;
+    cursor: pointer;
+
+    
+}
+
+
+@media (max-width: 992px) {
+    .course-container{
+        display: flex;
+        flex-direction: column;
+        padding: 0px 50px;
+        justify-content: center;
+        
+    }
+
+    
+
+}
+
+@media (max-width: 600px) {
+    iframe{
+        width: 400px;
+        height: 300px;
+    }
+
+    
+
+
+}
+
+@media (max-width: 480px) {
+    iframe{
+        width: 300px;
+        height: 200px;
+    }
+    
+
+
+}
+
+/*   All Course   */
+.card-wrapper{
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px 0;
+    
+}
+
+
+
+.image-content img{
+    width: 320px;
+    height: auto;
+    border-radius: 25px;
+    
+
+    
+}
+
+.card-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 180px;
+    padding: 14px ;
+}
+.card-content p{
+    font-size: 14px;
+    color: rgb(132, 132, 132);
+}
+
+.card{
+    width: 320px;
+    background-color: white;
+    border-radius: 25px;
+    height: auto;
+    height: 420px;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+
+.view-btn{
+    position: relative;
+    top: 18px;
+    border: none;
+    cursor: pointer;
+    padding: 10px 30px;
+    font-size: 14px;
+    background-color: #FFC75F;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+}

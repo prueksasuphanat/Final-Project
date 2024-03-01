@@ -1,0 +1,68 @@
+.Banner-pic{
+    width: 500px;
+    height: auto;
+}
+
+.container-banner{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.text-banner{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+
+    justify-content: center;
+    
+}
+
+.text-banner h1{
+    font-size: 60px ;
+}
+
+.quote {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.quote.active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease-in-out;
+}
+
+@media (max-width: 992px) {
+    
+
+    
+
+}
+
+@media (max-width: 600px) {
+    .Banner-pic{
+        width: 300px;
+        height: auto;
+    }
+    .text-banner h1{
+        font-size: 40px ;
+    }
+    .text-banner h2{
+        font-size: 20px ;
+    }
+    
+  
+    
+
+
+}
+
+@media (max-width: 480px) {
+    
+
+
+}
