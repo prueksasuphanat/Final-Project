@@ -15,6 +15,7 @@ import ID2 from './pages/courses/ID2'
 import ID3 from './pages/courses/ID3'
 import ID4 from './pages/courses/ID4'
 import AllCourse from './pages/AllCourse'
+import Contact from './pages/Contact'
 
 
 
@@ -30,7 +31,8 @@ function App() {
         <Route path="/form" element={<Form/>}/>
         <Route path='/login' element={<LoginPage/>}/>
         <Route path='/profile' element={<Profile/>}/>
-        <Route path='/pt' element={<PT/>}/>
+        <Route path='/contact' element={<Contact/>}/>
+
 
         /* Courses */
         <Route path = '/Courses' element={<AllCourse/>}/>

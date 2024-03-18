@@ -24,6 +24,7 @@ const NavBar = () => {
     const navigate = useNavigate();
     const token = localStorage.getItem('accessToken');
     const [data, setData] = useState<Course[]>([]);
+
     useEffect(() => {
         const getData = async () => {
         const result = await fetchData();
@@ -48,6 +49,13 @@ const NavBar = () => {
 
     const handleLogout = () => {
         localStorage.removeItem('accessToken');
+        /*
+        localStorage.removeItem('enrolledCourseIds');
+        localStorage.removeItem('completeCourseIds');
+         */
+
+
+
         navigate('/');
     };
     
@@ -77,7 +85,7 @@ const NavBar = () => {
                                 
                             </ul>
                         </li>
-                        <li><a href='#'>Contact</a></li>
+                        <li><a href='/contact'>Contact</a></li>
                     </ul>
                     
                     {token ? (
@@ -169,7 +177,7 @@ const NavBar = () => {
                         )}</li>
                         <li><a href='/profile'>Profile</a></li>
                         <li><a href='/Courses'>Courses</a></li>
-                        <li>Contact</li>
+                        <li><a href='/contact'>Contact</a></li>
                         <li>{token ? (
                             <button className='Logout-btn' onClick={handleLogout}>Logout</button>
                             

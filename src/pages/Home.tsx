@@ -13,6 +13,9 @@ import YourCourese from '../components/YourCourese'
 
 const Home = () => {
   const [data, setData] = useState<Course[]>([]);
+  const token = localStorage.getItem('accessToken');
+  const enrolledCourseIds = localStorage.getItem('enrolledCourseIds');
+
 
     useEffect(() => {
         const getData = async () => {
@@ -30,12 +33,48 @@ const Home = () => {
       <div>
         <Carousel />
       </div>
-      <div><YourCourese></YourCourese></div>
-      <div>All Courese</div>
+      {enrolledCourseIds ? (
+        <>
+          <div className='header-yourcourse'>
+            <div className='line'></div>
+            <br></br>
+            <h1>Your Courses</h1>
+            <p>Registered Courses.</p>
+            <br></br>
+            <div className='line'></div>
+
+            
+          </div>
+          <div><YourCourese></YourCourese></div>
+        </>
+      ):(
+        <>
+        </>
+      )
+      }
+
       <div className='container-getstart'>
-        <h2>Recommended Courses</h2>
-        <br></br>
-        <div><a className='getstart-btn' href='/login'>Get Started</a></div>
+        <div className='getstart-header'>
+          <div className='line'></div>
+          <br></br>
+          <h1>Recommended Courses</h1>
+          <br></br>
+          <div className='line'></div> 
+           
+
+        </div>
+        
+
+        <div>
+          <br></br>
+          {token ? (
+                              <></>
+
+                          ) : (
+                            <a className='getstart-btn' href='/login'>Get Started</a>
+
+                          )}
+        </div>
         <br></br>
         <div>
           <div className='container-getstart-course'>

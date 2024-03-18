@@ -14,27 +14,65 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 
-
-
-
-
-
-
-
-
 const ID1 = () => {
   const [data, setData] = useState<Course[]>([]);
   const [videoUrl, setVideoUrl] = useState('');
+  const token = localStorage.getItem('accessToken');
+  const [enrolledCourses, setEnrolledCourses] = useState<number[]>([]);
+  const [CompleteCourses, setCompleteCourses] = useState<number[]>([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      const result = await fetchData();
+      setData(result);
+    };
+
+    const enrolledCourseIds = localStorage.getItem('enrolledCourseIds');
+    const enrolledCourseIdsArray = enrolledCourseIds ? JSON.parse(enrolledCourseIds) : [];
+    setEnrolledCourses(enrolledCourseIdsArray);
+
+    const completeCourseIds = localStorage.getItem('completeCourseIds');
+    const completeCourseIdsArray = completeCourseIds ? JSON.parse(completeCourseIds) : [];
+    setCompleteCourses(completeCourseIdsArray);
+  
+    getData();
+  }, []);
+
+  const enrollCourse = (courseId: number) => {
+    const enrolledCourseIds = localStorage.getItem('enrolledCourseIds');
+    const enrolledCourseIdsArray = enrolledCourseIds ? JSON.parse(enrolledCourseIds) : [];
+    if (!enrolledCourseIdsArray.includes(courseId)) {
+      console.log("Enroll course id:", courseId);
+      setEnrolledCourses(prevCourses => [...prevCourses, courseId]);
+      const updatedEnrolledCourseIds = [...enrolledCourseIdsArray, courseId];
+      localStorage.setItem('enrolledCourseIds', JSON.stringify(updatedEnrolledCourseIds));
+      console.log(updatedEnrolledCourseIds);
+    }
+  };
+
+  const completeCourse = (courseId: number) =>{
+    const completeCourseIds = localStorage.getItem('completeCourseIds');
+    const completeCourseIdsArray = completeCourseIds ? JSON.parse(completeCourseIds) : [];
+    if (!completeCourseIdsArray.includes(courseId)) {
+      console.log("Complete course id:", courseId);
+      setCompleteCourses(prevCourses => [...prevCourses, courseId]);
+      const updatedcompleteCourseIds = [...completeCourseIdsArray, courseId];
+      localStorage.setItem('completeCourseIds', JSON.stringify(updatedcompleteCourseIds));
+      console.log(updatedcompleteCourseIds);
+    }
+  };
 
 
-    useEffect(() => {
-        const getData = async () => {
-        const result = await fetchData();
-        setData(result);
-        };
-        getData();
-    }, []);
-    
+
+  
+
+
+  const AlertEnroll = () => {
+    alert("please enroll this course")
+
+  }
+
+
   return (
     <>
     
@@ -48,7 +86,23 @@ const ID1 = () => {
         {data.filter(course => course.id === 1).map(course => ( 
           <>
             <div className='Headercourse'>
-              <h2 >{course.name}</h2>
+              <div className='Headercourse-text'>
+                <h2>{course.name}</h2>
+                {CompleteCourses.includes(course.id) ?(
+                  <>
+                    <div className='completecheck'>
+                      <span className="material-symbols-outlined">check_circle</span>
+
+                    </div>
+
+                  </>
+                ):(
+                  <>
+                  </>
+                )
+                  
+                }
+              </div>
               <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
               <div className='lesson'>
                   
@@ -64,8 +118,32 @@ const ID1 = () => {
                       <Typography>Introduction</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                      <a href='#' onClick={() => setVideoUrl('https://www.youtube-nocookie.com/embed/kqtD5dpn9C8?si=EwJXiaSLLb6cZiRi')}>Video</a><br></br>
-                      <a href='#'>Quiz</a>
+                    {token ? (
+                      <>
+                        {enrolledCourses.includes(course.id) ? (
+                          <div>
+                            <a href='#' onClick={() => setVideoUrl('https://www.youtube-nocookie.com/embed/kqtD5dpn9C8?si=EwJXiaSLLb6cZiRi')}>Video</a><br></br>
+                            <a href='#'>Quiz</a>
+                          </div>
+                        ) :(
+                          <div>
+                            <a href='#' onClick={AlertEnroll} >Video</a><br></br>
+                            <a href='#' onClick={AlertEnroll} >Quiz</a><br></br>
+                          </div>
+                        )
+                        }
+                      </>
+                          ) : (
+                            <>
+                              <div>
+                                <a href='/login'>Video</a><br></br>
+                                <a href='/login'>Quiz</a>
+                              </div>
+                            </>
+                          )}
+                    
+                      
+                      
                     </AccordionDetails>
                   </Accordion>
                   <Accordion>
@@ -129,13 +207,23 @@ const ID1 = () => {
               </div>
             </div>
             
-              
-            
-                
-                
-                
+
             <div className='course-description'>
-                  <button className='Enroll-btn'>Enroll</button>
+            {token ? (
+              <>
+                {enrolledCourses.includes(course.id) ? null : (
+                  <button className="Enroll-btn" onClick={() => enrollCourse(course.id)}>
+                    Enroll
+                  </button>
+                )}
+                    </>
+                  ) : (
+                    <>
+                   
+                    </>
+
+                  )}
+
                   <br></br>
 
                   <div>
@@ -148,6 +236,41 @@ const ID1 = () => {
                     <img src='/src/images/vscodelogo.webp'></img>
                     <p><b>VS code</b></p>
                   </div>
+                  <div>
+                  {token ? (
+                      <>
+                        {enrolledCourses.includes(course.id)  ?  (
+                          <div>
+                            {CompleteCourses.includes(course.id) ?(
+                              <>
+                              </>
+                            ):(
+                              <>
+                                <button className='CompleteLesson-btn' onClick={() => completeCourse(course.id)}>
+                                  <b>Click here to complete this lesson.</b>
+                                </button>
+                              </>
+                            )
+                            
+                            }
+                            
+                          </div>
+                        ) :(
+                          
+                          <b>(Please enroll for learn this course.)</b>
+                        )
+                        }
+                      </>
+                          ) : (
+                            <>
+                              <b>(Please login and enroll for learn this course.)</b>
+
+                            </>
+                          )}
+                    
+        
+
+                  </div>
                   
             </div>
 
@@ -155,10 +278,15 @@ const ID1 = () => {
 
         ))}
       </div>
+      
+      
+
+      
       <div className='lesson-video'>
+  
         {videoUrl && <iframe width="560" height="315" 
         src={videoUrl}></iframe>}
-        <button className='CompleteLesson-btn' ><b>Click here to complete this lesson.</b></button>
+        
       </div>
      
       <Footer></Footer>

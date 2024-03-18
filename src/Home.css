@@ -28,7 +28,15 @@
     justify-content: center;
     height: 100%;
     
+}
 
+.getstart-header{
+    text-align: center;
+    color: white;
+}
+
+.getstart-header .line{
+    background-color: white;
 }
 
 .course{
@@ -36,12 +44,13 @@
     width: 100%;
     height:100%;
     border-radius: 10px;
-    background: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
     
     justify-content: space-between;
     backdrop-filter: blur(10px);
+    background: rgb(255, 255, 255);
+
     background-color: rgba(255, 255, 255, 0.4); 
 }
 
@@ -68,14 +77,224 @@
     border: none;
     border-radius: 20px;
     
+}
+
+.YourCourses-container{
+    text-align: center;
+    
+}
+
+.line{
+    padding: 1px 20px;
+    width: 500px;
+}
+
+.card-wrapped{
+    display: flex;
+    flex-direction: row;
+    
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 0px;
+    
 
 }
+
+.header-yourcourse{
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+.complete{
+    color: rgb(0, 0, 0);
+    position: absolute;
+    padding: 10px 20px;
+    z-index: 1;
+    background-color: #8fe841;
+    border: 1px solid  #8fe841 ;
+    border-radius: 20px 0px 20px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap:5px;
+    font-size: 15px;
+    transition: color 0.2s ease, opacity 0.2s ease;    
+
+}
+
+.complete:hover{
+    opacity: 1;
+    color: rgb(253, 253, 253);
+    
+}
+
+.profile-container {
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+    gap:20px;
+    display: flex;
+  }
+.avatar-profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.menubar-profile{
+    background-color: white;
+
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;    justify-content: start;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+   
+}
+.ProfileYourCourese ,.profile ,.prosonalInformation{
+    flex-grow: 0;
+    border-radius: 10px;
+    padding: 10px 20px;
+    background-color: white;
+
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+.profile{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+
+.menu-content {
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+.date{
+    border: none;
+    border-radius: 10px;
+
+}
+
+.prosonalInformation{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+.prosonalInformation-content{
+    display: flex;
+    justify-content: start;
+    gap: 30px;
+}
+.choose{
+    cursor: pointer;
+
+}
+
+.choose a:after {
+    content: ''; 
+    position: absolute;
+    background-color: #FFC75F;
+    height:0px;
+    width: 3px;
+    top: 0px;
+    left: 0px;
+    transition: 0.3s;
+}
+.choose a:hover:after {
+    height: 100%;
+    
+
+}
+
+.menu:hover{
+    background-color: #f6f6f6;
+
+}
+
+
+/*Contact*/
+.contact-container{
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.contact-img{
+    background: url("./src/images/p2.jpg");
+    background-repeat:no-repeat ;
+    background-position: center;
+    background-size: cover;
+    order: 1;
+    width: 300px;
+    height: 300px;
+    justify-self: center;
+    /*box-shadow: inset 0 0 0 9px rgb(255 255 255/30%);*/
+    animation: profile-animate 8s ease-in-out infinite 1s;
+    border: 2px solid black;
+}
+
+.head .description{
+    max-width: 400px;
+    letter-spacing: 1px;
+    color: rgb(162, 162, 162);
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+.head{
+    letter-spacing: 6px;
+    font-size: 40px;
+
+}
+
+.LinkIcon{
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+
+}
+
+@keyframes profile-animate {
+    0%{
+        border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+    }
+    50%{
+        border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
+    }
+    100%{
+        border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+    }
+
+}
+
 
 
 @media (max-width: 992px) {
     .course img{
         width: auto;
         height:75px;
+    }
+    .container-getstart-course{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .contact-container{
+        flex-direction: column-reverse;
     }
     
 
@@ -84,6 +303,35 @@
 }
 
 @media (max-width: 600px) {
+    .menubar-profile{
+
+    }
+    .profile-container{
+        flex-direction: column;
+
+    }
+    .menu-content{
+        flex-grow: none; 
+
+    }
+
+    .getstart-header h1{
+
+        font-size: 20px;
+
+    }
+    .line{
+        padding: 1px 20px;
+        width: 300px;
+    }
+
+    .card-wrapped{
+        justify-content: center;
+    }
+    .head{
+        font-size: 30px;
+    }
+    
     
 
 

@@ -9,7 +9,7 @@ export interface Course {
 
 }
 export async function fetchData() {
-  const response = await fetch('https://72ced2f2-d9dc-48d5-b3d2-d778b161aa65-00-a256fqssrjq8.pike.replit.dev/courses');
+  const response = await fetch('https://ab23f3c3-33b0-4e00-b12c-50e6c580dc1b-00-2fk3sn5rmyk2g.worf.replit.dev/courses');
   const data = await response.json();
   return data;
 }

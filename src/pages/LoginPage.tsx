@@ -19,7 +19,7 @@ const LoginPage = () => {
         event.preventDefault();
 
         if (inputs.username === 'user' && inputs.password === '1111') {
-            const mockAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imthcm4ueW9uZ0BtZWxpdmVjb2RlLmNvbSIsImlhdCI6MTY0NDY3MDMwNCwiZXhwIjoxNjQ0NjcyMzA0fQ.qXAPsWtwBHrXtuNzX6nLy7vU5aOq-L90cVSHcVth3uA';
+            const mockAccessToken = 'test';
             setMessage('Logged in');
             navigate('/profile');
             localStorage.setItem('accessToken', mockAccessToken);

@@ -16,7 +16,6 @@ const Footer = () => {
         };
         getData();
     }, []);
-  console.log(data)
   return (
     <footer>
         <div className='container-footer'>
