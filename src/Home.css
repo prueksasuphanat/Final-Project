@@ -296,6 +296,11 @@
     .contact-container{
         flex-direction: column-reverse;
     }
+    .card-wrapped{
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+    }
     
 
     
@@ -327,6 +332,8 @@
 
     .card-wrapped{
         justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
     }
     .head{
         font-size: 30px;

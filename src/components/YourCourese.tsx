@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { fetchData, Course } from '../api';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
 const YourCourses = () => {
   const [data, setData] = useState<Course[]>([]);
@@ -20,7 +21,9 @@ const YourCourses = () => {
 
   return (
     <>
+      
       <div className='YourCourses-container'>
+          
         <div className='card-wrapped'>
           
           {filteredCourses.map((course) => (
@@ -30,8 +33,7 @@ const YourCourses = () => {
                 <p className={`complete id${course.id}`}><span className="material-symbols-outlined">check_circle</span>Complete</p>
               )}
 
-
-              <div className={`card id${course.id}`}>
+              
                 <div className="image-content">
                   <img src="/src/images/bg1.jpg" alt="Course Background"></img>
                 </div>
@@ -48,12 +50,13 @@ const YourCourses = () => {
                   </div>
                 </div>
                 
-              </div>
               
             </div>
           ))}
         </div>
       </div>
+      
+      
     </>
   );
 }
